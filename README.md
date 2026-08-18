@@ -29,6 +29,60 @@ mcp-loomery/
 └── LICENSE
 ```
 
+references 覆盖：原语分工 · 2026-07-28 协议差集 · TypeScript / Python SDK v2 · 传输 · 安全 · Inspector · host 配置 · Registry。
+
+## 目录结构
+
+```
+mcp-loomery/
+├── SKILL.md                                  # skill 入口：frontmatter、硬规则、场景工作流、检查清单
+├── scripts/                                  # 可执行脚本（说明见 scripts/README.md）
+│   ├── scaffold.py                           # 从模板生成最小 TS / Python MCP server
+│   ├── check-server.py                       # 静态扫描 stdout 污染、v1 API、弃用原语、工具名
+│   ├── README.md                             # 本目录说明（中文）
+│   └── README.en.md                          # 本目录说明（英文）
+├── references/                               # 按需加载的参考（渐进披露，索引见 references/README.md）
+│   ├── primitives.md                         # Tools / Resources / Prompts
+│   ├── protocol-2026.md                      # `_meta`、`server/discover`、双时代、弃用项
+│   ├── sdk-typescript.md                     # `serveStdio`、`registerTool`、`createMcpHandler`
+│   ├── sdk-python.md                         # `MCPServer`、`mcp dev` / `mcp run`
+│   ├── transports.md                         # stdio vs Streamable HTTP
+│   ├── security.md                           # server 作者的 MUST / MUST NOT
+│   ├── inspector.md                          # MCP Inspector、`protocolEra`、调试回路
+│   ├── client-config.md                      # Cursor / Claude Desktop mcp.json
+│   ├── registry.md                           # 官方 MCP Registry 与所有权证明
+│   ├── README.md                             # 本目录索引（中文）
+│   └── README.en.md                          # 本目录索引（英文）
+├── assets/                                   # 静态模板（说明见 assets/README.md）
+│   ├── README.md
+│   ├── README.en.md
+│   └── templates/
+│       ├── README.md                         # 生成进目标项目的 README（中文）
+│       ├── README.en.md
+│       ├── typescript-stdio/                 # 默认栈：TS + stdio + `serveStdio`
+│       │   ├── package.json
+│       │   ├── tsconfig.json
+│       │   └── src/index.ts
+│       ├── typescript-http/                  # TS + Streamable HTTP + `createMcpHandler`
+│       │   ├── package.json
+│       │   ├── tsconfig.json
+│       │   └── src/index.ts
+│       └── python-stdio/                     # Python SDK v2 + stdio
+│           ├── pyproject.toml
+│           └── server.py
+├── evals/                                    # description 触发评测与质量评测
+│   ├── trigger-queries.json                  # 20 条触发查询（10 正 + 10 负）
+│   ├── train_queries.json                    # 训练集（12）
+│   ├── validation_queries.json               # 验证集（8）
+│   ├── evals.json                            # 质量评测任务与断言
+│   ├── README.md                             # 评测方法（中文）
+│   └── README.en.md                          # 评测方法（英文）
+├── README.md                                 # 本文件（中文）
+├── README.en.md                              # 英文版
+├── LICENSE                                   # MIT
+└── .gitignore
+```
+
 ## 默认栈
 
 用户未指定语言时：**TypeScript SDK v2 + stdio + Inspector**。已有 Python 项目或用户明确要求 Python 时改用 Python SDK v2（`mcp` / `MCPServer`）。官网 TypeScript 天气教程若仍是 `StdioServerTransport` + `connect()`，那是滞后的 2025 示例；新项目用 `serveStdio`。

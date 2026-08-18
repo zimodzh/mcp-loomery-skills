@@ -29,6 +29,60 @@ mcp-loomery/
 └── LICENSE
 ```
 
+references cover: primitives · 2026-07-28 protocol delta · TypeScript / Python SDK v2 · transports · security · Inspector · host config · Registry.
+
+## Directory structure
+
+```
+mcp-loomery/
+├── SKILL.md                                  # entry: frontmatter, hard rules, scenarios, checklist
+├── scripts/                                  # executables (see scripts/README.md)
+│   ├── scaffold.py                           # generate a minimal TS / Python MCP server from templates
+│   ├── check-server.py                       # scan stdout pollution, v1 APIs, deprecated primitives, tool names
+│   ├── README.md                             # this directory (Chinese)
+│   └── README.en.md                          # this directory (English)
+├── references/                               # on-demand docs (progressive disclosure; index: references/README.md)
+│   ├── primitives.md                         # Tools / Resources / Prompts
+│   ├── protocol-2026.md                      # `_meta`, `server/discover`, dual-era, deprecations
+│   ├── sdk-typescript.md                     # `serveStdio`, `registerTool`, `createMcpHandler`
+│   ├── sdk-python.md                         # `MCPServer`, `mcp dev` / `mcp run`
+│   ├── transports.md                         # stdio vs Streamable HTTP
+│   ├── security.md                           # MUST / MUST NOT for server authors
+│   ├── inspector.md                          # MCP Inspector, `protocolEra`, debug loop
+│   ├── client-config.md                      # Cursor / Claude Desktop mcp.json
+│   ├── registry.md                           # official MCP Registry and ownership proof
+│   ├── README.md                             # directory index (Chinese)
+│   └── README.en.md                          # directory index (English)
+├── assets/                                   # static templates (see assets/README.md)
+│   ├── README.md
+│   ├── README.en.md
+│   └── templates/
+│       ├── README.md                         # README copied into generated projects (Chinese)
+│       ├── README.en.md
+│       ├── typescript-stdio/                 # default stack: TS + stdio + `serveStdio`
+│       │   ├── package.json
+│       │   ├── tsconfig.json
+│       │   └── src/index.ts
+│       ├── typescript-http/                  # TS + Streamable HTTP + `createMcpHandler`
+│       │   ├── package.json
+│       │   ├── tsconfig.json
+│       │   └── src/index.ts
+│       └── python-stdio/                     # Python SDK v2 + stdio
+│           ├── pyproject.toml
+│           └── server.py
+├── evals/                                    # description trigger evals and quality evals
+│   ├── trigger-queries.json                  # 20 trigger queries (10 should / 10 should-not)
+│   ├── train_queries.json                    # train split (12)
+│   ├── validation_queries.json               # validation split (8)
+│   ├── evals.json                            # quality tasks and assertions
+│   ├── README.md                             # eval method (Chinese)
+│   └── README.en.md                          # eval method (English)
+├── README.md                                 # Chinese
+├── README.en.md                              # this file
+├── LICENSE                                   # MIT
+└── .gitignore
+```
+
 ## Default stack
 
 If the user does not name a language: **TypeScript SDK v2 + stdio + Inspector**. Switch to Python SDK v2 (`mcp` / `MCPServer`) when the project is already Python or the user asks for Python. If the website TypeScript weather sample still uses `StdioServerTransport` + `connect()`, that is a lagged 2025-era listing — new projects use `serveStdio`.
