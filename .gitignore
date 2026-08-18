@@ -1,0 +1,12 @@
+node_modules/
+__pycache__/
+.venv/
+venv/
+dist/
+build/
+*.pyc
+*.egg-info/
+.DS_Store
+Thumbs.db
+.cursor/
+*.log

@@ -1,0 +1,14 @@
+{
+  "skill": "mcp-loomery",
+  "split": "validation",
+  "queries": [
+    { "query": "用 Python 做个 MCP，要有 resource 和 prompt", "should_trigger": true },
+    { "query": "帮我写 Claude Desktop 的 mcp 配置，接到我刚写的 server", "should_trigger": true },
+    { "query": "怎么把我的 MCP 发到 official registry", "should_trigger": true },
+    { "query": "wrap this weather API as a Model Context Protocol server", "should_trigger": true },
+    { "query": "给这个 REST API 写 OpenAPI spec，不接任何 AI host", "should_trigger": false },
+    { "query": "帮我写一个 Language Server (LSP)，不是 MCP", "should_trigger": false },
+    { "query": "git 冲突了怎么解决", "should_trigger": false },
+    { "query": "写个 Koishi 插件监听消息", "should_trigger": false }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "skill_name": "mcp-loomery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a local MCP server named notes next to the current directory. TypeScript, stdio, a single ping tool. Use the official 2026-07-28 default stack. Do not use the v1 SDK.",
+      "expected_output": "A TypeScript MCP server using @modelcontextprotocol/server and serveStdio (not @modelcontextprotocol/sdk v1), with a ping tool, stderr-only logging, and Inspector instructions using absolute paths and protocolEra auto or modern.",
+      "assertions": [
+        "Uses @modelcontextprotocol/server and serveStdio, not FastMCP or @modelcontextprotocol/sdk as the primary import",
+        "Does not write console.log or other non-JSON to stdout",
+        "Registers a ping (or equivalent) tool with inputSchema and a description that says when to call it",
+        "Tells the user to verify with MCP Inspector (protocolEra auto or modern) before editing host config"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The model should mutate a database, the app should get table schemas as context, and the user should have a /summarize-schema template. Which three MCP primitives? Do not collapse this into one catch-all tool.",
+      "expected_output": "tools = mutations/queries the model calls; resources = schema as read-only URIs; prompts = user-invoked summarize template. No single do-everything tool.",
+      "assertions": [
+        "Assigns database writes/queries to tools",
+        "Assigns schema documents to resources",
+        "Assigns /summarize-schema to prompts",
+        "Does not recommend sampling, protocol logging, or roots for a new server"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "My stdio MCP server console.logs 'started successfully' and Claude Desktop never connects. Why, and how do I fix it?",
+      "expected_output": "Explains stdout is the JSON-RPC channel; console.log corrupts framing; switch to console.error / stderr. Mentions Inspector as the isolation test.",
+      "assertions": [
+        "Identifies stdout pollution as the failure mode",
+        "Recommends stderr / console.error",
+        "Does not suggest implementing a custom initialize or server/discover handler as the fix"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "skill": "mcp-loomery",
+  "split": "train",
+  "queries": [
+    { "query": "帮我写一个 MCP 服务器，给 Cursor 用", "should_trigger": true },
+    { "query": "给这个 agent 加一个能查内部工单的工具，本地跑就行", "should_trigger": true },
+    { "query": "Create a stdio MCP server in TypeScript", "should_trigger": true },
+    { "query": "MCP Inspector 连不上我的 server，怎么查", "should_trigger": true },
+    { "query": "这个 MCP 要改成 Streamable HTTP 并加上 OAuth", "should_trigger": true },
+    { "query": "registerTool 和 registerResource 该用哪个？我想暴露数据库 schema", "should_trigger": true },
+    { "query": "写个 DSH 插件给 DeepSeek Harness 用", "should_trigger": false },
+    { "query": "帮我写一个 Agent Skill（SKILL.md），用来做代码审查", "should_trigger": false },
+    { "query": "用 Express 写个普通 REST API，不接任何 AI 客户端", "should_trigger": false },
+    { "query": "怎么写一个 Chrome extension", "should_trigger": false },
+    { "query": "帮我写一个 MCP client，去连别人已经发布的 weather server", "should_trigger": false },
+    { "query": "这个项目用 LangChain tools 就行，不要上 MCP", "should_trigger": false }
+  ]
+}

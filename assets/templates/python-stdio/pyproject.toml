@@ -1,0 +1,10 @@
+[project]
+name = "{{PACKAGE_NAME}}"
+version = "1.0.0"
+description = "{{SERVER_NAME}} MCP server"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mcp[cli]>=2"]
+
+[project.scripts]
+{{BIN_NAME}} = "server:mcp"
