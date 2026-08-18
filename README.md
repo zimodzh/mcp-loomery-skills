@@ -9,9 +9,16 @@
 
 一套遵循 [Agent Skills 规范](https://agentskills.io) 的技能，用于制作通用 [**Model Context Protocol（MCP）**](https://modelcontextprotocol.io) **服务器**。协议基线：**2026-07-28**。
 
-内容蒸馏自官方英文文档（本地快照：`Documentation`、`Specification`、`Registry`、`Extensions`）以及官方 TypeScript / Python SDK v2 文档，而不是旧的 `initialize` / `FastMCP` / `@modelcontextprotocol/sdk` v1 默认栈。
+## 这是什么
 
-加载本技能后，agent 会按同一套工作流：选原语、用 SDK v2 脚手架、用 MCP Inspector 验证、写 host 配置，并在需要时发布到官方 MCP Registry。
+`mcp-loomery` 是一个 [Agent Skills](https://agentskills.io) 格式的技能（一个含 `SKILL.md` 的文件夹）。加载它之后，任何兼容的 agent（Cursor / Claude Code / Claude Desktop 等）都会获得一套标准流程，用来：
+
+- **创建** MCP 服务器（tools / resources / prompts）
+- **审查** TypeScript / Python SDK v2 接线与协议 **2026-07-28** 约定
+- **调试**（MCP Inspector、stdio stdout、host 配置）
+- **发布**到官方 MCP Registry（在你明确要求时）
+
+内容蒸馏自官方英文文档（本地快照：`Documentation`、`Specification`、`Registry`、`Extensions`）以及官方 TypeScript / Python SDK v2 文档，而不是旧的 `initialize` / `FastMCP` / `@modelcontextprotocol/sdk` v1 默认栈。
 
 ## 技能里有什么
 

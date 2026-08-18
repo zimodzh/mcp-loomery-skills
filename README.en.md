@@ -9,9 +9,16 @@
 
 An [Agent Skills](https://agentskills.io) skill for building general-purpose [**Model Context Protocol (MCP)**](https://modelcontextprotocol.io) **servers**. Protocol baseline: **2026-07-28**.
 
-Distilled from the official English docs (local snapshot: `Documentation`, `Specification`, `Registry`, `Extensions`) and the official TypeScript / Python SDK v2 docs — not the old `initialize` / `FastMCP` / `@modelcontextprotocol/sdk` v1 default stack.
+## What is this
 
-Once loaded, the agent follows one workflow: pick primitives, scaffold with SDK v2, verify with MCP Inspector, write host config, and publish to the official MCP Registry when asked.
+`mcp-loomery` is an [Agent Skills](https://agentskills.io)-format skill (a folder containing a `SKILL.md`). Once loaded, any compatible agent (Cursor / Claude Code / Claude Desktop, and others) gains a standard workflow to:
+
+- **Create** an MCP server (tools / resources / prompts)
+- **Review** TypeScript / Python SDK v2 wiring against protocol **2026-07-28**
+- **Debug** (MCP Inspector, stdio stdout, host config)
+- **Publish** to the official MCP Registry (when you ask)
+
+Distilled from the official English docs (local snapshot: `Documentation`, `Specification`, `Registry`, `Extensions`) and the official TypeScript / Python SDK v2 docs — not the old `initialize` / `FastMCP` / `@modelcontextprotocol/sdk` v1 default stack.
 
 ## What’s in the skill
 
